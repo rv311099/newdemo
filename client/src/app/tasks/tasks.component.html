@@ -1,0 +1,70 @@
+<body style="background-color:wheat;">
+    
+<h1 style="text-align: center; color: rgb(0, 0, 0); font-style: fantasy; font-size: x-large; ">Personal Diary!</h1>
+<br>
+<div class="container" >
+    <!-- title:<input type="text" [(ngModel)]="newTask.title">
+description: <input type="text" [(ngModel)]="newTask.description"> -->
+
+    <div class="card" style="background-color: rgb(128, 236, 169);">
+        <div class="card-body" >
+            <div class="form-group">
+                <label for="title">date</label>
+                <input type="text" class="form-control" id="title" [(ngModel)]="newTask.title">
+                <small id="emailHelp" class="form-text text-muted">Enter the date of today</small>
+            </div>
+            <div class="form-group">
+                <label for="description">location</label>
+                <input type="text" class="form-control" id="description" [(ngModel)]="newTask.description">
+                <small id="emailHelp" class="form-text text-muted">Enter corrent month and year</small>
+            </div>
+            <div class="form-group">
+                <label for="description">special</label>
+                <input type="text" class="form-control" id="description" [(ngModel)]="newTask.password" >
+                <small id="emailHelp" class="form-text text-muted">Enter something if u got special today!</small>
+            </div>
+            <button (click)="id==''?createTask():updateTask()" class="btn btn-primary" style="margin-left: 45%;" [disabled]="newTask.password===''||newTask.description ===''|| newTask.title ===''">{{id==''?'Create':'Update'}}</button>
+            
+
+        </div>
+
+    </div>
+
+<!-- <button (click)="add()">add</button> [disabled]="pass===false"-->
+<!-- <app-add-des></app-add-des>  -->
+
+    <!-- <button (click) = "id==''?createTask():updateTask()">{{id==''?'Create':'Update'}} </button> -->
+    <br>
+    <br>
+    <br>
+
+    <div class="row" style="background-color: rgb(128, 236, 169);text-align: center;">
+        <div *ngFor="let t of tasks" class="col-md-4 col-sm-4 col-lg-4" style="margin-top: 20px;">
+            <div class="card" style="background-color: rgb(44, 150, 236);">
+                <div class="card-body" style="color: whitesmoke;">
+                    <h5 class="card-title">{{t.title}}</h5>
+                    <h5 class="card-title"> PLACE : {{t.description}}</h5>
+                    <!-- <div style="margin-left: 30px;"> -->
+                    <a routerLink="/add/{{t._id}}" style="color: black;" class="form-control" style="width: fit-content; margin-left: 60px;"  >click  here to make your day!</a>
+                
+                </div> 
+
+
+
+                <!-- <div>{{t.title}} </div>
+    <div>{{t.description}} </div> -->
+                <div class="card-body" style="margin-left: 90px;">
+                    <a (click)="setUpdate(t)" class="card-link"  style="color: white; margin-left: 90px; font-size: small;"> Update </a>
+                    
+                    <a (click)="deleteTask(t._id)" class="card-link"   style="color: white; font-size: small;"> Delete </a>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+
+</div>
+<!-- <router-outlet></router-outlet> -->
+
+
+
